@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: ETLpipeline
+Version: 0.1.0
+Summary: ETL and Query
+Author: Danish Maknojia
+Author-email: d.maknojia@duke.edu
+Requires-Dist: databricks-sql-connector
+Requires-Dist: pandas
+Requires-Dist: python-dotenv
