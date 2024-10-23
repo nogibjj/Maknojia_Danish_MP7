@@ -3,7 +3,7 @@
 [![CI](https://github.com/nogibjj/Maknojia_Danish_MP6/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/nogibjj/Maknojia_Danish_MP6/actions/workflows/cicd.yml)
 
 ## Project Overview
-This project is a python script which interacts with a cloud-based SQL server on Databricks. The project requires us to build an ETL pipeline (Extract, Transform & Load) and focus on creating a complex SQL query:
+This project is a python script which interacts with a cloud-based SQL server on Databricks. The project requires us to build an ETL pipeline (Extract, Transform & Load) and focus on creating a complex SQL query. The CLI tool makes it easy to perform the ETL commands:
 
 - Extract: Raw data is accessed via github repo
 
@@ -12,6 +12,60 @@ This project is a python script which interacts with a cloud-based SQL server on
 - Query: Performs CRUD operations (create, read, update, delete) on the database, and logging each SQL query to a markdown file (query_log.md). The log_query function appends the executed SQL queries to the log file, while general_query, create_record, update_record, delete_record, and read_data manage data operations within the database.
 
 - Complex SQL Query: Running a query on the tables in the database which joins tables and provides valuable insights
+
+## CLI Use
+
+```
+python setup.py develop
+```
+This command allows use to setup the command line CLI functions
+
+Functions:
+
+```
+etl_query <command>
+```
+Format to run the etl_query commands
+
+```
+etl_query extract
+```
+Extracts data
+```
+etl_query load
+```
+Loads data
+```
+etl_query query"""
+
+WITH player_stats AS (
+    SELECT '2024' AS season,
+        p.PLAYER_NAME AS player,
+        r.TEAM AS team,
+        r.OPP AS opponent,
+        p.PROJ_FPTS AS projected_points
+    FROM drm85_mp6.drm85_wr_points p
+    JOIN drm85_mp6.drm85_wr_ranking r ON p.PLAYER_NAME = r.PLAYER_NAME
+    WHERE p.PROJ_FPTS IS NOT NULL
+),
+team_player_stats AS (
+    SELECT team,
+        player,
+        AVG(projected_points) AS avg_projected_points
+    FROM player_stats
+    GROUP BY team, player
+)
+
+SELECT team, player, avg_projected_points
+FROM team_player_stats
+ORDER BY avg_projected_points DESC
+LIMIT 10;
+
+
+
+""""
+```
+Runs complex query on data 
 
 ## Directory Overview
 

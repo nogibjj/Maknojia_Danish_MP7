@@ -6,7 +6,7 @@ setup(
     description="ETL and Query",
     author="Danish Maknojia",
     author_email="d.maknojia@duke.edu",
-    packages=find_packages(),  # Automatically find all packages and sub-packages
+    packages=find_packages(),
     install_requires=[
         "databricks-sql-connector",
         "pandas",
