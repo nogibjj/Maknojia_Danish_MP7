@@ -1,6 +1,6 @@
-# Danish_Maknojia_MP6
+# Danish_Maknojia_MP7
 
-[![CI](https://github.com/nogibjj/Maknojia_Danish_MP6/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/nogibjj/Maknojia_Danish_MP6/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/Maknojia_Danish_MP7/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Maknojia_Danish_MP7/actions/workflows/cicd.yml)
 
 ## Project Overview
 This project is a python script which interacts with a cloud-based SQL server on Databricks. The project requires us to build an ETL pipeline (Extract, Transform & Load) and focus on creating a complex SQL query. The CLI tool makes it easy to perform the ETL commands:
